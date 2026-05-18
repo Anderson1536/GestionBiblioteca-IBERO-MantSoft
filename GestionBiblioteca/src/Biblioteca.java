@@ -67,7 +67,6 @@ public class Biblioteca {
                             + estado);
         }
     }
-
     public void buscarPorGenero() {
 
         System.out.print("Genero: ");
@@ -95,5 +94,31 @@ public class Biblioteca {
             System.out.println(
                     "No existen libros de ese genero.");
         }
+    }
+
+    public void prestarLibro() {
+
+        System.out.print("ISBN: ");
+
+        String isbn = sc.nextLine();
+
+        System.out.print("ID Usuario: ");
+
+        String usuario = sc.nextLine();
+
+        if (prestamos.containsKey(isbn)) {
+
+            System.out.println(
+                    "Libro ya prestado.");
+
+            return;
+        }
+
+        prestamos.put(
+                isbn,
+                usuario);
+
+        System.out.println(
+                "Prestamo realizado.");
     }
 }
