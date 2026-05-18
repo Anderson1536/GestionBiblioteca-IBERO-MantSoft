@@ -67,4 +67,29 @@ public class Biblioteca {
                             + estado);
         }
     }
+
+    public void reportePrestamos() {
+
+        if (prestamos.isEmpty()) {
+
+            System.out.println(
+                    "No hay prestamos activos.");
+
+            return;
+        }
+
+        for (String isbn : prestamos.keySet()) {
+
+            Libro libro = libros.get(isbn);
+
+            String usuario = prestamos.get(isbn);
+
+            System.out.println(
+
+                    "Libro: "
+                            + libro.getTitulo()
+                            + " | Usuario: "
+                            + usuario);
+        }
+    }
 }
