@@ -99,11 +99,9 @@ public class Biblioteca {
     public void prestarLibro() {
 
         System.out.print("ISBN: ");
-
         String isbn = sc.nextLine();
 
         System.out.print("ID Usuario: ");
-
         String usuario = sc.nextLine();
 
         if (prestamos.containsKey(isbn)) {
@@ -122,14 +120,37 @@ public class Biblioteca {
                 "Prestamo realizado.");
     }
 
+    public void reportePrestamos() {
+
+        if (prestamos.isEmpty()) {
+
+            System.out.println(
+                    "No hay prestamos activos.");
+
+            return;
+        }
+
+        for (String isbn : prestamos.keySet()) {
+
+            Libro libro = libros.get(isbn);
+
+            String usuario = prestamos.get(isbn);
+
+            System.out.println(
+
+                    "Libro: "
+                            + libro.getTitulo()
+                            + " | Usuario: "
+                            + usuario);
+        }
+    }
+
     public void agregarUsuario() {
 
         System.out.print("ID: ");
-
         String id = sc.nextLine();
 
         System.out.print("Nombre: ");
-
         String nombre = sc.nextLine();
 
         Usuario usuario = new Usuario(
@@ -146,9 +167,7 @@ public class Biblioteca {
 
     public void eliminarUsuario() {
 
-        System.out.print(
-                "ID Usuario: ");
-
+        System.out.print("ID Usuario: ");
         String id = sc.nextLine();
 
         if (usuarios.containsKey(id)) {
@@ -164,5 +183,4 @@ public class Biblioteca {
                     "Usuario no encontrado.");
         }
     }
-    
 }
