@@ -29,6 +29,11 @@ public class Main {
                     biblioteca.listarLibros();
                     break;
 
+                case "3":
+
+                    biblioteca.buscarPorGenero();
+                    break;
+
                 case "0":
 
                     System.exit(0);

@@ -16,7 +16,7 @@ public class Biblioteca {
 
         if (libros.containsKey(isbn)) {
 
-            System.out.println("ISBN ya registrado.");
+            System.out.println("ERROR: ISBN ya registrado.");
             return;
         }
 
@@ -65,6 +65,35 @@ public class Biblioteca {
                             + libro.getAutor()
                             + " | "
                             + estado);
+        }
+    }
+
+    public void buscarPorGenero() {
+
+        System.out.print("Genero: ");
+
+        String generoBusqueda = sc.nextLine();
+
+        boolean encontrado = false;
+
+        for (Libro libro : libros.values()) {
+
+            if (libro.getGenero()
+                    .equalsIgnoreCase(generoBusqueda)) {
+
+                System.out.println(
+                        libro.getTitulo()
+                                + " | "
+                                + libro.getAutor());
+
+                encontrado = true;
+            }
+        }
+
+        if (!encontrado) {
+
+            System.out.println(
+                    "No existen libros de ese genero.");
         }
     }
 }
