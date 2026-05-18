@@ -1,0 +1,70 @@
+
+import java.util.*;
+
+public class Biblioteca {
+
+    private HashMap<String, Libro> libros = new HashMap<>();
+    private HashMap<String, Usuario> usuarios = new HashMap<>();
+    private HashMap<String, String> prestamos = new HashMap<>();
+
+    Scanner sc = new Scanner(System.in);
+
+    public void agregarLibro() {
+
+        System.out.print("ISBN: ");
+        String isbn = sc.nextLine();
+
+        if (libros.containsKey(isbn)) {
+
+            System.out.println("ISBN ya registrado.");
+            return;
+        }
+
+        System.out.print("Titulo: ");
+        String titulo = sc.nextLine();
+
+        System.out.print("Autor: ");
+        String autor = sc.nextLine();
+
+        System.out.print("Genero: ");
+        String genero = sc.nextLine();
+
+        System.out.print("Año: ");
+        int anio = Integer.parseInt(sc.nextLine());
+
+        Libro libro = new Libro(
+                isbn,
+                titulo,
+                autor,
+                genero,
+                anio);
+
+        libros.put(isbn, libro);
+
+        System.out.println("Libro agregado.");
+    }
+
+    public void listarLibros() {
+
+        if (libros.isEmpty()) {
+
+            System.out.println("No hay libros.");
+            return;
+        }
+
+        for (Libro libro : libros.values()) {
+
+            String estado = prestamos.containsKey(
+                    libro.getIsbn())
+                            ? "Prestado"
+                            : "Disponible";
+
+            System.out.println(
+                    libro.getTitulo()
+                            + " | "
+                            + libro.getAutor()
+                            + " | "
+                            + estado);
+        }
+    }
+}
