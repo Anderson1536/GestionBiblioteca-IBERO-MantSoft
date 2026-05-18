@@ -67,4 +67,47 @@ public class Biblioteca {
                             + estado);
         }
     }
+
+    public void agregarUsuario() {
+
+        System.out.print("ID: ");
+
+        String id = sc.nextLine();
+
+        System.out.print("Nombre: ");
+
+        String nombre = sc.nextLine();
+
+        Usuario usuario = new Usuario(
+                id,
+                nombre);
+
+        usuarios.put(
+                id,
+                usuario);
+
+        System.out.println(
+                "Usuario agregado.");
+    }
+
+    public void eliminarUsuario() {
+
+        System.out.print(
+                "ID Usuario: ");
+
+        String id = sc.nextLine();
+
+        if (usuarios.containsKey(id)) {
+
+            usuarios.remove(id);
+
+            System.out.println(
+                    "Usuario eliminado.");
+
+        } else {
+
+            System.out.println(
+                    "Usuario no encontrado.");
+        }
+    }
 }
