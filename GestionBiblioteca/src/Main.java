@@ -15,6 +15,8 @@ public class Main {
             System.out.println("2. Listar libros");
             System.out.println("3. Buscar por genero");
             System.out.println("4. Prestar libro");
+            System.out.println("5. Agregar usuario");
+            System.out.println("6. Eliminar usuario");
             System.out.println("0. Salir");
 
             String opcion = sc.nextLine();
@@ -39,6 +41,14 @@ public class Main {
                 case "3":
 
                     biblioteca.buscarPorGenero();
+                case "5":
+
+                    biblioteca.agregarUsuario();
+                    break;
+                
+                case "6":
+
+                    biblioteca.eliminarUsuario();
                     break;
 
                 case "0":
