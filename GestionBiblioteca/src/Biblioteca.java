@@ -67,4 +67,30 @@ public class Biblioteca {
                             + estado);
         }
     }
+
+    public void prestarLibro() {
+
+        System.out.print("ISBN: ");
+
+        String isbn = sc.nextLine();
+
+        System.out.print("ID Usuario: ");
+
+        String usuario = sc.nextLine();
+
+        if (prestamos.containsKey(isbn)) {
+
+            System.out.println(
+                    "Libro ya prestado.");
+
+            return;
+        }
+
+        prestamos.put(
+                isbn,
+                usuario);
+
+        System.out.println(
+                "Prestamo realizado.");
+    }
 }
